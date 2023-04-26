@@ -1,9 +1,6 @@
-package com.vygos.getfoodorder.application.web.dto.input;
+package com.vygos.getfoodorder.application.dto.input;
 
-import jakarta.validation.constraints.Negative;
-import jakarta.validation.constraints.NegativeOrZero;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.validation.annotation.Validated;
@@ -23,10 +20,10 @@ public class OrderItemsInputDTO {
     private String description;
 
     @NotNull
-    @NegativeOrZero
+    @Positive
     private BigDecimal price = BigDecimal.ZERO;
 
     @NotNull
-    @NegativeOrZero
+    @Positive
     private Integer quantity = 1;
 }

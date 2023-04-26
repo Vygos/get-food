@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
-import static com.vygos.getfoodorder.infrastructure.config.kafka.KafkaTopics.CREATE_TICKET_TOPIC;
+import static com.vygos.getfoodorder.application.config.kafka.KafkaTopics.CREATE_TICKET_TOPIC;
 
 @Component
 @RequiredArgsConstructor

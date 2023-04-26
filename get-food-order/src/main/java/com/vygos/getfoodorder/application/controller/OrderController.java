@@ -1,6 +1,6 @@
-package com.vygos.getfoodorder.application.web.controller;
+package com.vygos.getfoodorder.application.controller;
 
-import com.vygos.getfoodorder.application.web.dto.input.OrderInputDTO;
+import com.vygos.getfoodorder.application.dto.input.OrderInputDTO;
 import com.vygos.getfoodorder.core.domain.model.Order;
 import com.vygos.getfoodorder.core.service.OrderService;
 import com.vygos.getfoodorder.infrastructure.mapper.OrderMapper;

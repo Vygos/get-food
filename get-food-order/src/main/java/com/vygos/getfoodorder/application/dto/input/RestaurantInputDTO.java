@@ -1,4 +1,4 @@
-package com.vygos.getfoodorder.application.web.dto.input;
+package com.vygos.getfoodorder.application.dto.input;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

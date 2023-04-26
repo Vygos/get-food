@@ -1,4 +1,4 @@
-package com.vygos.getfoodorder.infrastructure.config.exceptionhandling;
+package com.vygos.getfoodorder.application.config.exceptionhandling;
 
 import com.vygos.handler.ControllerExceptionHandler;
 import org.springframework.web.bind.annotation.ControllerAdvice;
