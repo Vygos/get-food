@@ -25,7 +25,10 @@ vygos:
     replicas: 1
     partitions: 1
     kafka-topics:
-      - get-food-order.ticket.create
+      - get-food-kitchen.ticket.create
+      - get-food-order.order.reject
+      - get-food-order.order.accept
+      - get-food-courier.ticket.verify-courier
 server:
   error:
     include-stacktrace: never

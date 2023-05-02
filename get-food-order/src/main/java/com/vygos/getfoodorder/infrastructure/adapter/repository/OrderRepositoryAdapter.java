@@ -20,4 +20,5 @@ public class OrderRepositoryAdapter implements OrderRepositoryGateway {
         OrderEntity orderEntity = this.orderMapper.toEntity(order);
         return this.orderMapper.toDomain(this.orderRepository.save(orderEntity));
     }
+
 }

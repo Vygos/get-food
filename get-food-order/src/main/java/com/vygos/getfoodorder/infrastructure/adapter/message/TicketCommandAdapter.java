@@ -12,7 +12,7 @@ import static com.vygos.getfoodorder.application.config.kafka.KafkaTopics.CREATE
 @RequiredArgsConstructor
 public class TicketCommandAdapter implements OrderSagaGateway {
 
-    private final KafkaTemplate<String, CreateTicketCommand> template;
+    private final KafkaTemplate<String, Object> template;
 
     public void send(CreateTicketCommand command) {
         this.template.send(CREATE_TICKET_TOPIC, command);
