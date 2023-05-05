@@ -24,13 +24,17 @@ public enum TicketStatus implements BaseEnum {
         this.value = value;
     }
 
-    //    @Override
+    @Override
     public String getValue() {
         return this.value;
     }
 
     @Override
     public BaseEnum getInstance(String value) {
+        return getTicketStatus(value);
+    }
+
+    public static TicketStatus getTicketStatus(String value) {
         return Stream.of(TicketStatus.values())
             .filter(v -> v.value.equals(value))
             .findFirst()

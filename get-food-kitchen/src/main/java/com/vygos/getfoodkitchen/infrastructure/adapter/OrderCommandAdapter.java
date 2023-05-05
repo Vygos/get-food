@@ -1,6 +1,6 @@
 package com.vygos.getfoodkitchen.infrastructure.adapter;
 
-import com.vygos.core.message.command.OrderAcceptCommand;
+import com.vygos.core.message.command.CreateTicketCommandReply;
 import com.vygos.core.message.command.OrderRejectCommand;
 import com.vygos.getfoodkitchen.application.config.kafka.KafkaTopics;
 import com.vygos.getfoodkitchen.core.ports.outgoing.OrderCommandGateway;
@@ -20,7 +20,7 @@ public class OrderCommandAdapter implements OrderCommandGateway {
     }
 
     @Override
-    public void send(OrderAcceptCommand orderAcceptedCommand) {
-        this.template.send(KafkaTopics.ORDER_ACCEPT_TOPIC, orderAcceptedCommand);
+    public void send(CreateTicketCommandReply createTicketCommandReply) {
+        this.template.send(KafkaTopics.CREATE_TICKET_REPLY_TOPIC, createTicketCommandReply);
     }
 }

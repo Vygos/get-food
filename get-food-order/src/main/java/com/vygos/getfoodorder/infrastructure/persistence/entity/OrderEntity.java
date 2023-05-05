@@ -3,6 +3,8 @@ package com.vygos.getfoodorder.infrastructure.persistence.entity;
 import com.vygos.core.enums.AbstractEnumConverter;
 import com.vygos.getfoodorder.core.domain.enums.OrderStatus;
 import com.vygos.getfoodorder.core.domain.enums.PaymentMethod;
+import com.vygos.getfoodorder.infrastructure.persistence.converter.OrderStatusConverter;
+import com.vygos.getfoodorder.infrastructure.persistence.converter.PaymentMethodConverter;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,7 +33,7 @@ public class OrderEntity {
     @Column(name = "USER_ID")
     private UUID userId;
 
-    @Convert(converter = AbstractEnumConverter.class)
+    @Convert(converter = OrderStatusConverter.class)
     @Column(name = "STATUS")
     private OrderStatus status;
 
@@ -48,7 +50,7 @@ public class OrderEntity {
     @Column(name = "PREPARATION_INSTRUCTIONS")
     private String preparationInstructions;
 
-    @Convert(converter = AbstractEnumConverter.class)
+    @Convert(converter = PaymentMethodConverter.class)
     @Column(name = "PAYMENT_METHOD")
     private PaymentMethod paymentMethod;
 

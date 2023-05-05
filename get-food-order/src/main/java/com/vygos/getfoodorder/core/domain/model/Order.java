@@ -1,11 +1,10 @@
 package com.vygos.getfoodorder.core.domain.model;
 
 import com.vygos.core.message.command.CreateTicketCommand;
+import com.vygos.core.message.command.VerifyCourierCommand;
 import com.vygos.getfoodorder.core.domain.enums.OrderStatus;
 import com.vygos.getfoodorder.core.domain.enums.PaymentMethod;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
@@ -13,7 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+@AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Setter
 @Getter
 public class Order {
@@ -48,6 +49,13 @@ public class Order {
         var now = ZonedDateTime.now();
         this.createdAt = now;
         this.updatedAt = now;
+    }
+
+    public VerifyCourierCommand toVerifyCommand() {
+        return VerifyCourierCommand.builder()
+            .orderId(id)
+            .status(status.getValue())
+            .build();
     }
 
 

@@ -4,8 +4,6 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -20,7 +18,7 @@ public class Restaurant {
 
     @Getter(AccessLevel.NONE)
     @Setter(AccessLevel.NONE)
-    private Boolean open = Boolean.TRUE;
+    private Boolean open;
 
     private Address address;
 

@@ -1,6 +1,6 @@
 package com.vygos.getfoodkitchen.core.domain.model;
 
-import com.vygos.core.message.command.OrderAcceptCommand;
+import com.vygos.core.message.command.CreateTicketCommandReply;
 import com.vygos.core.message.command.OrderRejectCommand;
 import com.vygos.getfoodkitchen.core.domain.enums.TicketStatus;
 import lombok.Getter;
@@ -21,7 +21,6 @@ public class Ticket {
     private TicketStatus status;
     private BigDecimal total;
     private String preparationInstructions;
-    private Boolean active;
     private List<Item> items = new ArrayList<>();
 
     public OrderRejectCommand toOrderRejected() {
@@ -38,8 +37,9 @@ public class Ticket {
     public void pending() {
         this.status = TicketStatus.PENDING;
     }
-    public OrderAcceptCommand toAcceptOrder() {
-        return OrderAcceptCommand.builder()
+
+    public CreateTicketCommandReply toAcceptOrder() {
+        return CreateTicketCommandReply.builder()
             .ticketId(id)
             .orderId(orderId)
             .status(status.getValue())

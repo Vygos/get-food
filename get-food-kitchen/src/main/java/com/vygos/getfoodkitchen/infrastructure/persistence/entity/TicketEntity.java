@@ -3,6 +3,7 @@ package com.vygos.getfoodkitchen.infrastructure.persistence.entity;
 import com.vygos.core.enums.AbstractEnumConverter;
 import com.vygos.getfoodkitchen.core.domain.enums.TicketStatus;
 import com.vygos.getfoodkitchen.core.domain.model.Restaurant;
+import com.vygos.getfoodkitchen.infrastructure.persistence.converter.TicketStatusConverter;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,7 +25,7 @@ public class TicketEntity {
     @Column(name = "ORDER_ID")
     private UUID orderId;
 
-    @Convert(converter = AbstractEnumConverter.class)
+    @Convert(converter = TicketStatusConverter.class)
     @Column(name = "STATUS")
     private TicketStatus status;
 

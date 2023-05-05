@@ -18,6 +18,7 @@ public interface TicketMapper {
         @Mapping(source = "order.items", target = "items"),
     })
     Ticket toDomain(CreateTicketCommand ticketCommand);
+    Ticket toDomain(TicketEntity ticketentity);
 
     TicketEntity toEntity(Ticket ticket);
 

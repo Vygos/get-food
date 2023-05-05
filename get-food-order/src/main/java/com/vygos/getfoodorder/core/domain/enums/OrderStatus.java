@@ -6,12 +6,12 @@ import java.util.stream.Stream;
 
 public enum OrderStatus implements BaseEnum {
     PENDING(1, "PENDING"),
-    COURIER_VERIFY_PENDING(1, "COURIER_VERIFY_PENDING"),
-    ACCEPTED(2, "PAYMENT_PENDING"),
-    PREPARING(3, "PREPARING"),
-    PICK_UP_PENDING(4, "PICK_UP_PENDING"),
-    DELIVERED_PENDING(5, "DELIVERY_PENDING"),
-    DELIVERED(5, "APPROVED");
+    COURIER_VERIFY_PENDING(2, "COURIER_VERIFY_PENDING"),
+    ACCEPTED(3, "PAYMENT_PENDING"),
+    PREPARING(4, "PREPARING"),
+    PICK_UP_PENDING(5, "PICK_UP_PENDING"),
+    DELIVERED_PENDING(6, "DELIVERY_PENDING"),
+    DELIVERED(7, "APPROVED");
 
 
     private final Integer id;
@@ -29,6 +29,10 @@ public enum OrderStatus implements BaseEnum {
 
     @Override
     public BaseEnum getInstance(String value) {
+        return getOrderStatus(value);
+    }
+
+    public static OrderStatus getOrderStatus(String value) {
         return Stream.of(OrderStatus.values())
             .filter(v -> v.value.equals(value))
             .findFirst()

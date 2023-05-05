@@ -23,21 +23,21 @@ public class KitchenService {
         Optional<Restaurant> optionalRestaurant = this.restaurantRepository.findById(ticket.getRestaurant().getId());
 
         if (optionalRestaurant.isEmpty()) {
-            sendOrderRejectCommand(ticket);
             ticketRepository.save(ticket);
+            sendOrderRejectCommand(ticket);
             return;
         }
 
         var restaurant = optionalRestaurant.get();
         if (!restaurant.isOpen()) {
-            sendOrderRejectCommand(ticket);
             ticketRepository.save(ticket);
+            sendOrderRejectCommand(ticket);
             return;
         }
 
         ticket.pending();
-        ticketRepository.save(ticket);
-        orderCommandGateway.send(ticket.toAcceptOrder());
+        var ticketPersisted = ticketRepository.save(ticket);
+        orderCommandGateway.send(ticketPersisted.toAcceptOrder());
     }
 
     private void sendOrderRejectCommand(Ticket ticket) {

@@ -13,8 +13,10 @@ import org.springframework.stereotype.Repository;
 public class TicketRepositoryAdapter implements TicketRepositoryGateway {
     private final TicketRepository ticketRepository;
     private final TicketMapper mapper;
-    public void save(Ticket ticket) {
+
+    public Ticket save(Ticket ticket) {
         TicketEntity ticketEntity = mapper.toEntity(ticket);
-        this.ticketRepository.save(ticketEntity);
+        ticketEntity = this.ticketRepository.save(ticketEntity);
+        return mapper.toDomain(ticketEntity);
     }
 }

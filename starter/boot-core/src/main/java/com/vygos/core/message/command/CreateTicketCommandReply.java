@@ -1,15 +1,15 @@
 package com.vygos.core.message.command;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.UUID;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
 @Getter
 @Setter
-public class OrderAcceptCommand {
+public class CreateTicketCommandReply {
     private UUID orderId;
     private UUID ticketId;
     private String status;

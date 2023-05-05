@@ -4,5 +4,5 @@ import com.vygos.getfoodkitchen.core.domain.model.Ticket;
 import com.vygos.getfoodkitchen.infrastructure.persistence.entity.TicketEntity;
 
 public interface TicketRepositoryGateway {
-    void save(Ticket ticket);
+    Ticket save(Ticket ticket);
 }

@@ -8,6 +8,9 @@ import com.vygos.getfoodorder.infrastructure.persistence.repository.OrderReposit
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+import java.util.UUID;
+
 @RequiredArgsConstructor
 @Repository
 public class OrderRepositoryAdapter implements OrderRepositoryGateway {
@@ -19,6 +22,18 @@ public class OrderRepositoryAdapter implements OrderRepositoryGateway {
     public Order save(Order order) {
         OrderEntity orderEntity = this.orderMapper.toEntity(order);
         return this.orderMapper.toDomain(this.orderRepository.save(orderEntity));
+    }
+
+    @Override
+    public Order update(Order order) {
+        OrderEntity orderEntity = this.orderMapper.toEntity(order);
+        orderEntity.getItems().forEach(item -> item.setOrder(orderEntity));
+        return this.orderMapper.toDomain(this.orderRepository.save(orderEntity));
+    }
+
+    @Override
+    public Optional<Order> findById(UUID id) {
+        return orderRepository.findById(id).map(orderMapper::toDomain);
     }
 
 }

@@ -25,4 +25,18 @@ public class OrderService {
         return orderPersisted;
     }
 
+    @Transactional
+    public void update(Order order) {
+        var orderOptional = this.orderRepositoryGateway.findById(order.getId());
+
+        if (orderOptional.isEmpty()) {
+            return;
+        }
+
+        Order orderPersisted = orderOptional.get();
+        orderPersisted.setStatus(order.getStatus());
+        this.orderRepositoryGateway.update(orderPersisted);
+        this.orderSagaGateway.send(orderPersisted.toVerifyCommand());
+    }
+
 }

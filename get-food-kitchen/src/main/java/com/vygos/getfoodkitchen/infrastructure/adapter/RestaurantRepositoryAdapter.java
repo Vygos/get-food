@@ -18,6 +18,6 @@ public class RestaurantRepositoryAdapter implements RestaurantRepositoryGateway 
 
     @Override
     public Optional<Restaurant> findById(UUID id) {
-        return this.restaurantRepository.findById(id).map(mapper::toDomain);
+        return this.restaurantRepository.findById(id).map(mapper::toDomainOpen);
     }
 }
