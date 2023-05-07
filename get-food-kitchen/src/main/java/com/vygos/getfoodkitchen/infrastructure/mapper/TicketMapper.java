@@ -11,7 +11,6 @@ import org.mapstruct.Mappings;
 public interface TicketMapper {
     @Mappings({
         @Mapping(source = "order.id", target = "orderId"),
-        @Mapping(source = "order.status", target = "status"),
         @Mapping(source = "order.total", target = "total"),
         @Mapping(source = "order.restaurant.restaurantId", target = "restaurant.id"),
         @Mapping(source = "order.preparationInstructions", target = "preparationInstructions"),

@@ -7,14 +7,13 @@ import com.vygos.core.enums.BaseEnum;
 import java.util.stream.Stream;
 
 public enum TicketStatus implements BaseEnum {
-    PENDING(1, "PENDING"),
-    COURIER_VERIFY_PENDING(2, "COURIER_VERIFY_PENDING"),
-    ACCEPTED(3, "ACCEPTED"),
-    PREPARING(4, "PREPARING"),
-    REJECTED(5, "REJECTED"),
-    PICK_UP_PENDING(6, "PICK_UP_PENDING"),
-    DELIVERY_PENDING(7, "DELIVERY_PENDING"),
-    DELIVERED(8, "DELIVERED");
+    COURIER_VERIFY_PENDING(1, "COURIER_VERIFY_PENDING"),
+    ACCEPTED(2, "ACCEPTED"),
+    PREPARING(3, "PREPARING"),
+    REJECTED(4, "REJECTED"),
+    PICK_UP_PENDING(5, "PICK_UP_PENDING"),
+    DELIVERY_PENDING(6, "DELIVERY_PENDING"),
+    DELIVERED(7, "DELIVERED");
 
     private final Integer id;
     private final String value;

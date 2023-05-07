@@ -26,17 +26,24 @@ public class OrderService {
     }
 
     @Transactional
-    public void update(Order order) {
+    public Order updateStatus(Order order) {
         var orderOptional = this.orderRepositoryGateway.findById(order.getId());
 
         if (orderOptional.isEmpty()) {
-            return;
+            return order;
         }
 
         Order orderPersisted = orderOptional.get();
         orderPersisted.setStatus(order.getStatus());
-        this.orderRepositoryGateway.update(orderPersisted);
-        this.orderSagaGateway.send(orderPersisted.toVerifyCommand());
+        return this.orderRepositoryGateway.update(orderPersisted);
     }
 
+    public void updateOrderStatusToVerifyCourier(Order order) {
+        Order orderUpdated = this.updateStatus(order);
+        this.orderSagaGateway.send(orderUpdated.toVerifyCommand());
+    }
+
+    public void updateOrderStatusToRejected(Order order) {
+        this.updateStatus(order);
+    }
 }

@@ -30,12 +30,12 @@ public class Ticket {
             .build();
     }
 
-    public void reject() {
+    public void changeToRejected() {
         this.status = TicketStatus.REJECTED;
     }
 
-    public void pending() {
-        this.status = TicketStatus.PENDING;
+    public void changeToCourierVerifyPending() {
+        this.status = TicketStatus.COURIER_VERIFY_PENDING;
     }
 
     public CreateTicketCommandReply toAcceptOrder() {

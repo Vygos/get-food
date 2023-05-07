@@ -1,6 +1,5 @@
 package com.vygos.getfoodorder.core.domain.model;
 
-import com.vygos.core.message.command.CreateTicketCommand;
 import com.vygos.core.message.command.VerifyCourierCommand;
 import com.vygos.getfoodorder.core.domain.enums.OrderStatus;
 import com.vygos.getfoodorder.core.domain.enums.PaymentMethod;
@@ -32,7 +31,7 @@ public class Order {
     private Address address;
     private List<OrderItems> items = new ArrayList<>();
 
-    public void changeToPendingState() {
+    public void changeToPending() {
         this.status = OrderStatus.PENDING;
     }
 
@@ -44,7 +43,7 @@ public class Order {
     }
 
     public void prepareCreate() {
-        changeToPendingState();
+        changeToPending();
         calculateTotal();
         var now = ZonedDateTime.now();
         this.createdAt = now;

@@ -35,13 +35,13 @@ public class KitchenService {
             return;
         }
 
-        ticket.pending();
+        ticket.changeToCourierVerifyPending();
         var ticketPersisted = ticketRepository.save(ticket);
         orderCommandGateway.send(ticketPersisted.toAcceptOrder());
     }
 
     private void sendOrderRejectCommand(Ticket ticket) {
-        ticket.reject();
+        ticket.changeToRejected();
         this.orderCommandGateway.send(ticket.toOrderRejected());
     }
 
