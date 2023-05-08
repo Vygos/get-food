@@ -21,16 +21,10 @@ public enum PaymentMethod implements BaseEnum {
         return this.name;
     }
 
-    @Override
-    public BaseEnum getInstance(String value) {
-        return getPaymentMethod(value);
-    }
-
     public static PaymentMethod getPaymentMethod(String value) {
         return Stream.of(PaymentMethod.values())
             .filter(v -> v.getValue().equals(value))
             .findFirst()
-            .orElse(PaymentMethod.CREDIT_CARD);
-//            .orElseThrow(IllegalArgumentException::new);
+            .orElseThrow(IllegalArgumentException::new);
     }
 }

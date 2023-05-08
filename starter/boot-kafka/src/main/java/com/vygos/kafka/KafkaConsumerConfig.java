@@ -22,8 +22,12 @@ public class KafkaConsumerConfig {
   @Value("${spring.kafka.bootstrap-servers}")
   private String bootstrapServers;
 
+  @Value("${spring.application.name}")
+  private String applicationName;
+
   public Map<String, Object> getDefaultProps() {
     Map<String, Object> props = new HashMap<>();
+    props.put(ConsumerConfig.CLIENT_ID_CONFIG, this.applicationName);
     props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, this.bootstrapServers);
     props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
     props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);

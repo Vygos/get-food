@@ -33,7 +33,11 @@ public class OrderInputDTO {
 
     @Valid
     @NotNull
-    private AddressInputDTO address;
+    private AddressInputDTO source;
+
+    @Valid
+    @NotNull
+    private AddressInputDTO destination;
 
     @Valid
     @NotNull

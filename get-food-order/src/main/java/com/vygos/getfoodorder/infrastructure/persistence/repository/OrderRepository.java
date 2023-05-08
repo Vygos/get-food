@@ -11,7 +11,7 @@ public interface OrderRepository extends JpaRepository<OrderEntity, UUID> {
 
     @Override
     @Query("SELECT order from OrderEntity order " +
-        " JOIN order.address JOIN order.restaurant" +
+        " JOIN order.source JOIN order.destination JOIN order.restaurant" +
         " JOIN FETCH order.items WHERE order.id = :id ")
     Optional<OrderEntity> findById(UUID id);
 }

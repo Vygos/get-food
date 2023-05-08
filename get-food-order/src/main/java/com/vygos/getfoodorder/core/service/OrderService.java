@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.function.Consumer;
+
 @RequiredArgsConstructor
 @Service
 public class OrderService {
@@ -16,13 +18,16 @@ public class OrderService {
     private final OrderMapper orderMapper;
     private final OrderSagaGateway orderSagaGateway;
 
-    @Transactional
-    public Order save(Order order) {
-        order.prepareCreate();
-        Order orderPersisted = this.orderRepositoryGateway.save(order);
+    public Order saveAndDispatchEvent(Order order) {
+        Order orderPersisted = this.save(order);
         CreateTicketCommand createTicketCommand = this.orderMapper.toTicket(orderPersisted);
         this.orderSagaGateway.send(createTicketCommand);
         return orderPersisted;
+    }
+    @Transactional
+    public Order save(Order order) {
+        order.prepareCreate();
+        return this.orderRepositoryGateway.save(order);
     }
 
     @Transactional

@@ -20,8 +20,12 @@ public class KafkaProducerConfig<T> {
   @Value("${spring.kafka.bootstrap-servers}")
   private String bootstrapServers;
 
+  @Value("${spring.application.name}")
+  private String applicationName;
+
   protected Map<String, Object> producerConfig() {
     HashMap<String, Object> props = new HashMap<>();
+    props.put(ProducerConfig.CLIENT_ID_CONFIG, this.applicationName);
     props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
     props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
     props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);

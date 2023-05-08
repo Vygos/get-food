@@ -7,6 +7,7 @@ import java.util.stream.Stream;
 public enum OrderStatus implements BaseEnum {
     PENDING(1, "PENDING"),
     COURIER_VERIFY_PENDING(2, "COURIER_VERIFY_PENDING"),
+    READY_TO_ACCEPTANCE(3, "READY_TO_ACCEPTANCE"),
     ACCEPTED(3, "PAYMENT_PENDING"),
     PREPARING(4, "PREPARING"),
     PICK_UP_PENDING(5, "PICK_UP_PENDING"),
@@ -25,11 +26,6 @@ public enum OrderStatus implements BaseEnum {
     @Override
     public String getValue() {
         return this.value;
-    }
-
-    @Override
-    public BaseEnum getInstance(String value) {
-        return getOrderStatus(value);
     }
 
     public static OrderStatus getOrderStatus(String value) {

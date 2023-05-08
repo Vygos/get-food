@@ -10,7 +10,6 @@ import java.util.UUID;
 public class Address {
 
     private UUID id;
-    private UUID addressId;
     private String street;
     private String city;
     private String zipCode;

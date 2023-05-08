@@ -17,9 +17,6 @@ public class AddressEntity {
     @Column(name = "ORDER_ADDRESS_ID")
     private UUID id;
 
-    @Column(name = "ADDRESS_ID")
-    private UUID addressId;
-
     @Column(name = "STREET")
     private String street;
 

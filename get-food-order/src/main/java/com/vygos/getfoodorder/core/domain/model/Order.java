@@ -28,7 +28,8 @@ public class Order {
     private PaymentMethod paymentMethod;
     private BigDecimal total;
     private Restaurant restaurant;
-    private Address address;
+    private Address source;
+    private Address destination;
     private List<OrderItems> items = new ArrayList<>();
 
     public void changeToPending() {

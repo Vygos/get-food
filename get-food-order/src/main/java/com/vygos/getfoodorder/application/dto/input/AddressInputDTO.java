@@ -14,9 +14,6 @@ public class AddressInputDTO {
 
     private UUID id;
 
-    @NotNull
-    private UUID addressId;
-
     @NotBlank
     private String street;
 

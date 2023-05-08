@@ -62,8 +62,12 @@ public class OrderEntity {
     private RestaurantEntity restaurant;
 
     @OneToOne(cascade = ALL, orphanRemoval = true)
-    @JoinColumn(name = "ADDRESS_ID")
-    private AddressEntity address;
+    @JoinColumn(name = "ADDRESS_SOURCE_ID")
+    private AddressEntity source;
+
+    @OneToOne(cascade = ALL, orphanRemoval = true)
+    @JoinColumn(name = "ADDRESS_DESTINATION_ID")
+    private AddressEntity destination;
 
     @OneToMany(mappedBy = "order", cascade = ALL, orphanRemoval = true)
     private List<OrderItemsEntity> items = new ArrayList<>();

@@ -26,6 +26,6 @@ public class OrderController {
     @PostMapping
     public ResponseEntity<Order> save(@Validated @RequestBody OrderInputDTO orderInput) {
         Order order = this.orderMapper.toDomain(orderInput);
-        return ResponseEntity.created(URI.create("/orders")).body(orderService.save(order));
+        return ResponseEntity.created(URI.create("/orders")).body(orderService.saveAndDispatchEvent(order));
     }
 }
