@@ -1,5 +1,6 @@
 package com.getfood.courier.core.domain;
 
+import com.getfood.courier.core.domain.formatter.BrazilFormatter;
 import com.getfood.courier.core.domain.formatter.Country;
 
 public class ZipCode {

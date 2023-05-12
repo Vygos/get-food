@@ -1,4 +1,4 @@
-package com.getfood.courier.core.domain;
+package com.getfood.courier.core.domain.formatter;
 
 import com.getfood.courier.core.domain.formatter.ZipCodeFormatter;
 
