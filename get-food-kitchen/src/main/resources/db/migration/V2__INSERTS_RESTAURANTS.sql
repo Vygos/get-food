@@ -1,4 +1,4 @@
-INSERT INTO ADDRESS (address_id, street, city, zip_code, country)
+INSERT INTO RESTAURANT_ADDRESS (restaurant_address_id, street, city, zip_code, country)
 VALUES ('1afce33d-ca07-4702-ba72-f9e3abe200a0', 'Rua 300', 'Asa norte', '71298000', 'BRAZIL');
 
 INSERT INTO RESTAURANT

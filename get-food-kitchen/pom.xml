@@ -8,7 +8,7 @@
 		<version>3.0.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.getorder</groupId>
+	<groupId>com.getfood</groupId>
 	<artifactId>get-food-kitchen</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>get-food-kitchen</name>
