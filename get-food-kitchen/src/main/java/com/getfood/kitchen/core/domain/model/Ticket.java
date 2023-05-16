@@ -3,14 +3,16 @@ package com.getfood.kitchen.core.domain.model;
 import com.vygos.core.message.command.CreateTicketCommandReply;
 import com.vygos.core.message.command.OrderRejectCommand;
 import com.getfood.kitchen.core.domain.enums.TicketStatus;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 public class Ticket {

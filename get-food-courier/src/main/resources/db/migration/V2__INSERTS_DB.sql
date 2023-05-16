@@ -1,0 +1,6 @@
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+INSERT INTO DELIVERY_COURIER_USER(DELIVERY_COURIER_USER_ID, NAME, REGISTER_NUMBER, BIRTHDAY_DATE , ACTIVE, ONLINE, CREATED_AT,
+                                  UPDATED_AT)
+VALUES ('01ab0327-f15d-4ed6-8401-930cb441ff50', 'Eduardo Souza Junior', '97927321013','2000-02-01', true, true, NOW(), NOW()),
+       ('4c3e233b-c18d-4cda-96d3-42f057ad669a', 'Matheus Silva Gonçalves', '36784966015','1999-01-10' ,true, true, NOW(), NOW())

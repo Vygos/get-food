@@ -1,5 +1,6 @@
 package com.getfood.order.core.domain.model;
 
+import com.vygos.core.message.command.TicketReadyAcceptance;
 import com.vygos.core.message.command.VerifyCourierCommand;
 import com.getfood.order.core.domain.enums.OrderStatus;
 import com.getfood.order.core.domain.enums.PaymentMethod;
@@ -57,6 +58,13 @@ public class Order {
             .status(status.getValue())
             .build();
     }
+
+    public TicketReadyAcceptance toReadyAcceptance() {
+        return TicketReadyAcceptance.builder()
+            .orderId(this.id)
+            .build();
+    }
+
 
 
 }

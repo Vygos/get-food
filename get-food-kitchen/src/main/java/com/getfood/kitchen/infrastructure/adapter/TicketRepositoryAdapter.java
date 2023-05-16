@@ -8,6 +8,9 @@ import com.getfood.kitchen.infrastructure.persistence.repository.TicketRepositor
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+import java.util.UUID;
+
 @RequiredArgsConstructor
 @Repository
 public class TicketRepositoryAdapter implements TicketRepositoryGateway {
@@ -19,4 +22,9 @@ public class TicketRepositoryAdapter implements TicketRepositoryGateway {
         ticketEntity = this.ticketRepository.save(ticketEntity);
         return mapper.toDomain(ticketEntity);
     }
+
+    public Optional<Ticket> findByOrderId(UUID orderId) {
+        return this.ticketRepository.findByOrderId(orderId).map(mapper::toDomain);
+    }
+
 }

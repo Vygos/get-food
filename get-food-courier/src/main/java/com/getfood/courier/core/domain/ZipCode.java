@@ -21,4 +21,8 @@ public class ZipCode {
         }
     }
 
+    public String getZipCode() {
+        return this.zipCode;
+    }
+
 }

@@ -1,1 +1,35 @@
-
+spring:
+  application:
+    name: get-food-courier
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: food_courier
+  flyway:
+    url: jdbc:postgresql://localhost:5432/postgres
+    user: postgres
+    password: postgres
+    create-schemas: true
+    default-schema: food_courier
+  kafka:
+    bootstrap-servers: localhost:9092
+vygos:
+  kafka:
+    replicas: 1
+    partitions: 1
+    kafka-topics:
+      - get-food-courier.ticket.verify-courier
+      - get-food-courier.ticket.verify-courier-reply
+server:
+  error:
+    include-stacktrace: never
+  port: 8083

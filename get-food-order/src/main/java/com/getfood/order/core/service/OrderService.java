@@ -49,4 +49,9 @@ public class OrderService {
     public void updateOrderStatusToRejected(Order order) {
         this.updateStatus(order);
     }
+
+    public void updateOrderStatusToReadyToAcceptance(Order order) {
+        Order orderUpdated = this.updateStatus(order);
+        this.orderSagaGateway.send(orderUpdated.toReadyAcceptance());
+    }
 }
