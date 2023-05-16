@@ -1,17 +1,15 @@
 package com.getfood.kitchen.core.service;
 
+import com.getfood.kitchen.core.domain.model.Restaurant;
 import com.getfood.kitchen.core.domain.model.Ticket;
 import com.getfood.kitchen.core.ports.outgoing.OrderCommandGateway;
 import com.getfood.kitchen.core.ports.outgoing.RestaurantRepositoryGateway;
-import com.getfood.kitchen.core.domain.model.Restaurant;
 import com.getfood.kitchen.core.ports.outgoing.TicketRepositoryGateway;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.client.HttpStatusCodeException;
 
 import java.util.Optional;
 
