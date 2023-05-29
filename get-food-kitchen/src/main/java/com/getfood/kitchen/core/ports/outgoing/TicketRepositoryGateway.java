@@ -9,4 +9,6 @@ public interface TicketRepositoryGateway {
     Ticket save(Ticket ticket);
 
     Optional<Ticket> findByOrderId(UUID orderId);
+
+    Optional<Ticket> findById(UUID id);
 }

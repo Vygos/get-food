@@ -3,6 +3,7 @@ package com.getfood.kitchen.core.domain.model;
 import com.vygos.core.message.command.CreateTicketCommandReply;
 import com.vygos.core.message.command.OrderRejectCommand;
 import com.getfood.kitchen.core.domain.enums.TicketStatus;
+import com.vygos.core.message.command.TicketAcceptedEvent;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -40,11 +41,23 @@ public class Ticket {
         this.status = TicketStatus.COURIER_VERIFY_PENDING;
     }
 
-    public CreateTicketCommandReply toAcceptOrder() {
+    public void changeToAccepted() {
+        this.status = TicketStatus.ACCEPTED;
+    }
+
+    public CreateTicketCommandReply toCreateTicketReply() {
         return CreateTicketCommandReply.builder()
             .ticketId(id)
             .orderId(orderId)
             .status(status.getValue())
+            .build();
+    }
+
+    public TicketAcceptedEvent toAcceptedTicket() {
+        return TicketAcceptedEvent.builder()
+            .id(this.id)
+            .orderId(this.orderId)
+            .status(this.getStatus().getValue())
             .build();
     }
 

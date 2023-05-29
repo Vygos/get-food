@@ -27,4 +27,9 @@ public class TicketRepositoryAdapter implements TicketRepositoryGateway {
         return this.ticketRepository.findByOrderId(orderId).map(mapper::toDomain);
     }
 
+    @Override
+    public Optional<Ticket> findById(UUID id) {
+        return this.ticketRepository.findById(id).map(mapper::toDomain);
+    }
+
 }
